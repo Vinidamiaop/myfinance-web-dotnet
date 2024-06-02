@@ -5,11 +5,6 @@ namespace myfinance_web_dotnet_infra
 {
     public class MyFinanceDbContext : DbContext
     {
-        // public MyFinanceDbContext(DbContextOptions<MyFinanceDbContext> options) : base(options)
-        // {
-
-        // }
-
         public DbSet<PlanoConta> PlanoConta { get; set; }
         public DbSet<Transacao> Transacao { get; set; }
 
