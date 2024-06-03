@@ -1,0 +1,65 @@
+@model myfinance_web_dotnet.Models.TransacaoModel
+@{
+    ViewData["Title"] = "Cadastrar";    
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form asp-controller="Transacao" asp-action="Cadastrar" method="Post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="data" class="control-label">Data:</label>
+                    <input id="data" class="form-control" type="date" asp-for="Data" />
+                </div>
+            </div>            
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="valor" class="control-label">Valor:</label>
+                    <input id="valor" class="form-control" type="number" asp-for="Valor" step="0.01" />
+                </div>
+            </div>            
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="inpPlanoConta" class="control-label">Plano de Conta:</label>
+                    @Html.DropDownListFor(m => m.PlanoContaId, Model.ListaPlanoContas, new { @class = "form-select" })
+                </div>
+            </div>            
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="descricao" class="control-label">Historico:</label>
+                    <input class="form-control" type="text" asp-for="Historico" />
+                </div>
+            </div>            
+        </div>
+
+        @* <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="descricao" class="control-label">Tipo:</label>
+                    <label>@Html.RadioButtonFor(m => m.Tipo, "D") Despesa</label>
+                    <label>@Html.RadioButtonFor(m => m.Tipo, "R") Receita</label>
+                </div>
+            </div>
+        </div> *@
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+            </div>
+        </div>
+
+    </form>
+</div>

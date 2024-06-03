@@ -36,7 +36,10 @@ namespace myfinance_web_dotnet_service
 
         public List<Transacao> ListarRegistros()
         {
-            return _context.Transacao.ToList();
+            return _context.Transacao
+                .AsNoTracking()
+                .Include(x => x.PlanoConta)
+                .ToList();
         }
 
         public Transacao RetornarRegistro(int Id)
